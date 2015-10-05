@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Intermediate Function Inheritance</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // ---------- INHERITANCE ----------
+    // When we ask for a property if it isn't found in the main object
+    // then it is searched for in the prototype object. We are able
+    // to inherit methods and variables from any object in a
+    // chain of objects.
+
+    function Animal(){
+        this.name = "Animal";
+
+        // toString is a function in the main Object that every
+        // object inherits from
+        this.toString = function() {
+            return "My name is : " + this.name;
+        };
+    }
+
+    function Canine(){
+        this.name = "Canine";
+    }
+
+    function Wolf(){
+        this.name = "Wolf";
+    }
+
+    // Overwrite the prototype for Canine and Wolf
+    Canine.prototype = new Animal();
+    Wolf.prototype = new Canine();
+
+    // After you overwrite prototype its constructor points to the
+    // main object object so you have to reset the constructor after
+    Canine.prototype.constructor = Canine;
+    Wolf.prototype.constructor = Wolf;
+
+    var arcticWolf = new Wolf();
+
+    // Wolf inherits toString from Animal
+    document.write(arcticWolf.toString() + "<br />");
+
+    document.write("Wolf instance of Animal : " + (arcticWolf instanceof Animal) + "<br />");
+
+    // Properties added to any object in the chain is inherited
+    Animal.prototype.sound = "Grrrrr";
+
+    Animal.prototype.getSound = function(){
+        return this.name + " says " + this.sound;
+    }
+
+    Canine.prototype.sound = "Woof";
+    Wolf.prototype.sound = "Grrrr Wooof";
+
+    document.write(arcticWolf.getSound() + "<br />");
+
+    // More often then not it makes more sense to just inherit the
+    // prototype to speed up the lookup process
+
+    function Rodent(){
+        this.name = "Rodent";
+    }
+
+    function Rat(){
+        this.name = "Rat";
+    }
+
+    Rodent.prototype = new Animal();
+    Rat.prototype = Rodent.prototype;
+    Rodent.prototype.constructor = Rodent;
+    Rat.prototype.constructor = Rat;
+
+    var caneRat = new Rat();
+
+    // Wolf inherits toString from Animal
+    document.write(caneRat.toString() + "<br />");
+
+    // ---------- INTERMEDIATE FUNCTION INHERITANCE ----------
+    function extend(Child, Parent){
+        var Temp = function(){};
+
+        Temp.prototype = Parent.prototype;
+
+        Child.prototype = new Temp();
+
+        Child.prototype.constructor = Child;
+
+    }
+
+    function Deer(){
+        this.name = "Deer";
+        this.sound = "Snort";
+    }
+
+    extend(Deer, Animal);
+
+    var elk = new Deer();
+
+    document.write(elk.getSound() + "<br />");
+
+</script>
+</body>
+</html>

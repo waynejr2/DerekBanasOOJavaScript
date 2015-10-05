@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Decorator Pattern</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // ---------- DECORATOR PATTERN ----------
+    // The decorator pattern allows you alter an object at run time
+    function Pizza(price){
+        this.price = price || 10;
+    }
+
+    Pizza.prototype.getPrice = function(){
+        return this.price;
+    }
+
+    function ExtraCheese(pizza){
+        var prevPrice = pizza.price;
+
+        pizza.price = prevPrice + 1;
+    }
+
+    var myPizza = new Pizza(10);
+
+    ExtraCheese(myPizza);
+
+    document.write("Cost of Pizza : $" + myPizza.price + "<br />");
+
+</script>
+</body>
+</html>

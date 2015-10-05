@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Getter and Setters</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // ---------- GETTERS AND SETTERS ----------
+    // Getters and Setters can protect data, or provide useful
+    // ways to set its value
+    // I'll show you a bunch of getters and setters you may come
+    // in contact with
+    var address = {
+        street: "No Street",
+        city: "No City",
+        state: "No State",
+
+        // Provides styled data all at once
+        get getAddress() {
+            return this.street + ", " + this.city + ", " + this.state;
+        },
+
+        // Allows the user to set 3 values with 1
+        set setAddress (theAddress) {
+            var parts = theAddress.toString().split(", ");
+            this.street = parts[0] || '';
+            this.city = parts[1] || '';
+            this.state = parts[2] || '';
+        }
+    }
+
+    address.setAddress = "123 Main St, Pittsburgh, PA";
+    document.write("Address : " + address.getAddress + "<br />");
+    document.write("City : " + address.city + "<br />");
+
+</script>
+</body>
+</html>

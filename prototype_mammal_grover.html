@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Prototype Mammal Grover</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // You can add properties and methods to this object
+    function Mammal(name){
+        this.name = name;
+        this.getInfo = function(){
+            return "The mammals name is " + this.name;
+        }
+    }
+
+    // Use prototype to add a property
+    Mammal.prototype.sound = "Grrrrr";
+
+    // Use it to add a method
+    Mammal.prototype.makeSound = function() {
+        return this.name + " says " + this.sound;
+    };
+
+    var grover = new Mammal("Grover");
+
+    document.write(grover.makeSound() + "<br />");
+
+    // List all properties of an object
+    for( var prop in grover){
+        document.write(prop + " : " + grover[prop] + "<br />");
+    }
+
+    // Check which property belongs to prototype vs. the object grover
+    document.write("name Property of Grover : " + grover.hasOwnProperty("name") + "<br />");
+
+    document.write("sound Property of Grover : " + grover.hasOwnProperty("sound") + "<br />");
+
+    // You can add methods to built in JS objects
+    Array.prototype.inArray = function inArray(value){
+        for(i = 0; i < this.length; i++){
+            if(this[i] === value){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    var sampArray = [1,2,3,4,5];
+
+    document.write("3 in array : " + sampArray.inArray(3) + "<br />");
+
+
+</script>
+</body>
+</html>

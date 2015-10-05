@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>getters and setters oldstyle could be deprecated</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    // ---------- CONSTRUCTOR GETTERS AND SETTERS ----------
+    // Still used even though it is (Deprecated)
+    function Coordinates(){
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+    }
+
+    // Define the getter with the prototype to assign it to with
+    // the property name and the getter function
+    Object.__defineGetter__.call(Coordinates.prototype, "getCoords", function(){
+        return "Lat : " + this.latitude + " Long: " + this.longitude;
+    });
+
+    // Define the setter with the prototype to assign it to with
+    // the property name and the setter function
+    Object.__defineSetter__.call(Coordinates.prototype, "setCoords", function(coords){
+        var parts = coords.toString().split(", ");
+        this.latitude = parts[0] || '';
+        this.longitude = parts[1] || '';
+    });
+
+    var testCoords = new Coordinates();
+
+    testCoords.setCoords = "40.71, 74.00";
+
+    document.write("Coordinates : " + testCoords.getCoords + "<br />");
+
+</script>
+</body>
+</html>

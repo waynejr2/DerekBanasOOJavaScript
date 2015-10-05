@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Private Properties</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    // ---------- PRIVATE PROPERTIES ----------
+    // All properties in an object are public in that any function
+    // can modify or delete these properties.
+    // You can make properties private by declaring them as
+    // variables in a constructor
+
+    function SecretCode(){
+        // This value can't be accessed directly
+        var secretNum = 78;
+
+        // This function can access secretNum
+        this.guessNum = function(num){
+            if(num > 78){
+                return "Lower";
+            } else if(num < 78){
+                return "Higher";
+            } else {
+                return "You Guessed It";
+            }
+        }
+    }
+
+    var secret = new SecretCode();
+
+    // Returns undefined
+    document.write("Value of secretNum : " + secret.secretNum + "<br />");
+
+    document.write("Is 70 the number : " + secret.guessNum(70) + "<br />");
+
+    // Even if we add another function it can't access the secretNum
+    SecretCode.prototype.getSecret = function(){
+        return this.secretNum;
+    }
+
+    document.write("The secret number is " + secret.getSecret() + "<br />");
+
+
+</script>
+</body>
+</html>
