@@ -17,4 +17,3 @@ Derek Banas Object Oriented JavaScript
 14  @49:32) pattern_factory.html
 15  @52:53) pattern_decorator.html
 16  @54:52) pattern_observer.html
-17
