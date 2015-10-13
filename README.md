@@ -12,4 +12,9 @@ Derek Banas Object Oriented JavaScript
  9  @29:35) inheritance.html
 10  @37:12) intermediate_function_inheritance.html
 11  @39:14) calling_parents_or_superclasses.html
-12  ) 
+12  @41:50) note: no file for this.  es6 stuff that runs in chrome scratch.js in devTools
+13  @47:31) pattern_singleton.html
+14  @49:32) pattern_factory.html
+15  @52:53) pattern_decorator.html
+16  @54:52) pattern_observer.html
+17
