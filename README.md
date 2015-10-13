@@ -9,5 +9,5 @@ Derek Banas Object Oriented JavaScript
  6  @21:21) getters_and_setters_oldstyle.html
  7  @24:38) getters_and_setters_defineProperty.html
  8  @27:02) getters_and_setters_newstyle.html
- 9)
+ 9  @29:35) 
 10)
