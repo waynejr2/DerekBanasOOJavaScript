@@ -6,9 +6,9 @@ Derek Banas Object Oriented JavaScript
  3   @9:01) prototype_mammal_grover.html
  4  @14:31) private_proerties.html
  5  @18:00) getters_and_setters.html
- 6  @21:21) getters_and_setters_oldstyle.html
+ 6  @21:21) getters_and_setters_oldstyle.html   //deprecated, still works in browsers.  This is here because Derek said we will still see it.
  7  @24:38) getters_and_setters_defineProperty.html
- 8  @27:02) getters_and_setters_newstyle.html
+ 8  @27:02) getters_and_setters_newstyle.html   //es5.1 method
  9  @29:35) inheritance.html
 10  @37:12) intermediate_function_inheritance.html
 11  @39:14) calling_parents_or_superclasses.html
