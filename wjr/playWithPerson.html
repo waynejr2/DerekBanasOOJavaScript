@@ -9,18 +9,25 @@
 <script type="text/javascript">
 
     function Person(name) {
+
         var getPersonInfo = function() {
             return this.name;
-        }
+        };
         this.name = name;
         this.info = function() {
-            getPersonInfo();
-        }
+            return this.name;
+        };
+        this.info2 = function() {
+            return getPersonInfo.call(this);
+        };
+
     }
 
     var bob = new Person('bob');
 
+    document.write("Person is named " + bob.name);
     document.write("Person is named " + bob.info());
+    document.write("Person is named " + bob.info2());
 
 </script>
 </body>
