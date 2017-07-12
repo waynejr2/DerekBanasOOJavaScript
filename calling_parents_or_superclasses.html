@@ -46,6 +46,45 @@
 
     document.write(jeep.stop() + "<br />");
 
+    function Car(name) {
+        this.name = name;
+    }
+
+    //inherit from Vehicle
+    Car.prototype = new Vehicle();
+    Car.prototype.constructor = Car;
+
+    //override drive parent method
+    Car.prototype.drive = function () {
+        var driveMsg = Vehicle.prototype.drive.apply(this);
+        return driveMsg += " down the road";
+    }
+
+    var mustang = new Car("Mustang");
+
+    document.write(mustang.drive() + "<br />");
+    document.write(mustang.stop() + "<br />");
+
+    function Motorcyle(name) {
+        this.name = name;
+    }
+
+    Motorcyle.prototype = new Vehicle();
+    Motorcyle.prototype.constructor = Motorcyle;
+
+    //override drive parent method
+    Motorcyle.prototype.drive = function () {
+        var driveMsg = Vehicle.prototype.drive.apply(this);
+        return driveMsg += " jumping 20 cars";
+    }
+
+    var harley = new Motorcyle("Harley");
+
+    document.write(harley.drive() + "<br />");
+    document.write(harley.stop() + "<br />");
+
+
+
 </script>
 </body>
 </html>
